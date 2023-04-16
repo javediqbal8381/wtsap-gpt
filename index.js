@@ -3,7 +3,9 @@ const qrcode = require("qrcode-terminal");
 const { Configuration, OpenAIApi } = require("openai");
 require("dotenv").config();
 
-const client = new Client();
+const client = new Client({
+    port: 3000,
+});
 
 client.on('qr', (qr) => {
     qrcode.generate(qr, { small: true });
